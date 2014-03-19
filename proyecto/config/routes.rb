@@ -55,5 +55,7 @@ Varelauabc::Application.routes.draw do
   #   end
 
 get '/blog/index', to: 'blog#index'
+get '/blog/foto_nueva', to: 'blog#foto_nueva'
+post '/blog/guardar_foto', to: 'blog#guardar_foto'
 
 end

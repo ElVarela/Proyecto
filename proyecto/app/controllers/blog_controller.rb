@@ -17,7 +17,7 @@ class BlogController < ApplicationController
 	end
 
 	def foto_params
-		params.require(:foto).permit(:titulo,:descripcion)
+		params.require(:foto).permit(:titulo,:descripcion,:image)
 	end
 
 end

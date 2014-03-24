@@ -4,6 +4,7 @@
 	<% for foto in @fotos %>
 	    <li>
 		    <h3><%= foto.titulo %></h3>
+		    <p><%= image_tag foto.image_url.to_s %></p>
 		    <p><%= foto.descripcion %></p>
 	    </li>
 	<% end %>

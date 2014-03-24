@@ -1,6 +1,6 @@
 <h1>Foto nueva:</h1>
 
-<%= form_tag :action => 'guardar_foto' do%>
+<%= form_tag({:action => 'guardar_foto'}, {:multipart => true} ) do%>
   <p>
   	<label for='foto_titulo'>Titulo</label>
   	<br/>
@@ -10,6 +10,9 @@
      	<label for='foto_descripcion'>Descripcion</label>
      	<br/>
      	<%= text_area 'foto', 'descripcion'%>
+     </p>
+     <p>
+      <%= file_field 'foto', 'image'%>
      </p>
         <%= submit_tag "Enviar" %>
 <%end%>

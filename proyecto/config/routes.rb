@@ -1,4 +1,7 @@
 Varelauabc::Application.routes.draw do
+  get "sessions/new"
+  get "sessions/create"
+  get "sessions/destroy"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,9 +56,17 @@ Varelauabc::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  root :to => "blog#index"
+  resources :sessions, only: [:new, :create, :destroy]
+  post 'blog/login',  to: 'sessions#new'
+  post 'blog/logout', to: 'sessions#destroy'
 
 get '/blog/index', to: 'blog#index'
-get '/blog/foto_nueva', to: 'blog#foto_nueva'
+post '/blog/foto_nueva', to: 'blog#foto_nueva'
 post '/blog/guardar_foto', to: 'blog#guardar_foto'
-
+get '/blog/registro', to: 'blog#registro'
+post '/blog/registrar_usuario', to: 'blog#registrar_usuario'
+get '/blog/login', to: 'blog#login'
+post '/blog/login', to: 'blog#login'
+post '/blog/logout', to: 'blog#logout'
 end

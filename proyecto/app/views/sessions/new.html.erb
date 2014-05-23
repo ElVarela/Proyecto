@@ -1,0 +1,21 @@
+
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %><br>
+
+
+<%= form_for(:session, url: sessions_path) do |f| %>
+ <div class="field>"
+  <%= f.label :emal, 'Correo' %><br />
+  <%= f.text_field :emal %>
+ </div>
+ <div class="field">
+  <%= f.label :password %><br />
+  <%= f.password_field :password %>
+ </div>
+ <div class="actions">
+  <%= f.submit "Iniciar sesión" %>
+</div>
+
+<%= link_to 'Registrate', :action => 'registro', :controller => "blog" %>
+<% end %>

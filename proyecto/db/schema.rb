@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140324181727) do
+ActiveRecord::Schema.define(version: 20140523111640) do
 
   create_table "fotos", force: true do |t|
     t.string   "titulo"
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(version: 20140324181727) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
+    t.integer  "usuario_id"
+  end
+
+  add_index "fotos", ["usuario_id"], name: "index_fotos_on_usuario_id"
+
+  create_table "usuarios", force: true do |t|
+    t.string   "nombre"
+    t.string   "emal"
+    t.string   "password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

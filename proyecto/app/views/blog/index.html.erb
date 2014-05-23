@@ -1,11 +1,27 @@
 <p>Listado</p>
-<%= link_to 'Nueva Foto', :action => 'foto_nueva' %>
+
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %><br>
+
+  <% if session[:current_user_id] %>
+<% usuario = Usuario.find_by(id: session[:current_user_id]) %>
+<%= usuario.nombre %><br>
+   <% end %>
+<%= button_to 'Nueva Foto', :action => 'foto_nueva' %>
+<%if !session[:current_user_id] %>
+<%= button_to 'login', {:action => 'login'}, :class => 'btn btn-primary btn-large' %>
+<% end %>
+<% if session[:current_user_id] %>
+<%= button_to 'logout', {:action => 'logout'}, :class => 'btn btn-primary btn-large' %>
+<% end %>
 <ul>
 	<% for foto in @fotos %>
 	    <li>
 		    <h3><%= foto.titulo %></h3>
 		    <p><%= image_tag foto.image_url.to_s %></p>
 		    <p><%= foto.descripcion %></p>
+		    <p><%= foto.usuario.nombre %></p>
 	    </li>
 	<% end %>
 </ul>

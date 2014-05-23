@@ -1,0 +1,22 @@
+<h1>Registro:</h1>
+
+<%= form_tag :action => :registrar_usuario do%>
+  <p>
+    <label for='usuario_nombre'>Nombre</label>
+    <br/>
+    <%= text_field 'usuario', 'nombre'%>
+  </p>
+
+  <p>
+    <label for='usuario_emal'>Correo Electronico</label>
+    <br/>
+    <%= text_field 'usuario', 'emal'%>
+  </p>
+     <p>
+      <label for='usuario_password'>Password</label>
+      <br/>
+      <%= password_field 'usuario', 'password'%>
+     </p>
+     
+        <%= submit_tag "Enviar" %>
+<%end%>

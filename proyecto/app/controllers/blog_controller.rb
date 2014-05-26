@@ -37,6 +37,7 @@ before_filter :valida_autentificacion, :except => [:login, :index, :registro, :r
 
 		@usuario = Usuario.new(usuario_params)
 		if @usuario.save
+			EnviaCorreo.correo_creado(@usuario).deliver
 			session[:current_user_id] = @usuario.id
             flash[:notice] = "Bienvenido: #{@usuario.nombre}"
 			redirect_to :action => 'index'

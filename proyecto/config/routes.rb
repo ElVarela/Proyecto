@@ -58,8 +58,8 @@ Varelauabc::Application.routes.draw do
   #   end
   root :to => "blog#index"
   resources :sessions, only: [:new, :create, :destroy]
-  post 'blog/login',  to: 'sessions#new'
-  post 'blog/logout', to: 'sessions#destroy'
+  get 'blog/login',  to: 'sessions#new'
+  get 'blog/logout', to: 'sessions#destroy'
 
 get '/blog/index', to: 'blog#index'
 post '/blog/foto_nueva', to: 'blog#foto_nueva'

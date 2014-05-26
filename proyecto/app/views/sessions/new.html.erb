@@ -1,6 +1,8 @@
 
 <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
+    <%= audio_tag("palabra magica.wav", autoplay: true, controls: false) %>
+    <%= image_tag("/icons/palabra.gif", height: '300', width: '225') %>
   <% end %><br>
 
 

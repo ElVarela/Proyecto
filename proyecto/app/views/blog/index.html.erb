@@ -10,10 +10,10 @@
    <% end %>
 <%= button_to 'Nueva Foto', :action => 'foto_nueva' %>
 <%if !session[:current_user_id] %>
-<%= button_to 'login', {:action => 'login'}, :class => 'btn btn-primary btn-large' %>
+<%= link_to 'login', {:action => 'login'}, :class => 'btn btn-primary btn-large' %>
 <% end %>
 <% if session[:current_user_id] %>
-<%= button_to 'logout', {:action => 'logout'}, :class => 'btn btn-primary btn-large' %>
+<%= link_to 'logout', {:action => 'logout'}, :class => 'btn btn-primary btn-large' %>
 <% end %>
 <ul>
 	<% for foto in @fotos %>

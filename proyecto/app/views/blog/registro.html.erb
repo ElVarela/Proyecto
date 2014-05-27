@@ -1,22 +1,25 @@
+<% if flash[:notice] %>
+<div class="alert alert-danger"><h1><%= flash[:notice] %></h1></div>
+<% end %>
+<div class="jumbotron">
 <h1>Registro:</h1>
 
 <%= form_tag :action => :registrar_usuario do%>
   <p>
-    <label for='usuario_nombre'>Nombre</label>
-    <br/>
-    <%= text_field 'usuario', 'nombre'%>
+    
+    <%= text_field 'usuario', 'nombre', :placeholder=>"Nombre"%>
   </p>
 
   <p>
-    <label for='usuario_emal'>Correo Electronico</label>
-    <br/>
-    <%= text_field 'usuario', 'emal'%>
+   
+    <%= text_field 'usuario', 'emal', :placeholder=>"Correo Electronico"%>
   </p>
      <p>
-      <label for='usuario_password'>Password</label>
-      <br/>
-      <%= password_field 'usuario', 'password'%>
+      
+      <%= password_field 'usuario', 'password', :placeholder=>"Contraseña"%>
      </p>
-     
-        <%= submit_tag "Enviar" %>
+     <div class="inicio">
+       <p><input type= "submit" value="Enviar"></p>
+      </div>
 <%end%>
+</div>

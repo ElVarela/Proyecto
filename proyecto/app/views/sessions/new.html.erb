@@ -1,23 +1,30 @@
 
 <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
+    <div class="alert alert-danger"><h1><%= flash[:notice] %></h1></div>
     <%= audio_tag("palabra magica.wav", autoplay: true, controls: false) %>
+    <br>
+    <br>
+    <br>
+    <br>
     <%= image_tag("/icons/palabra.gif", height: '300', width: '225') %>
   <% end %><br>
 
 
 <%= form_for(:session, url: sessions_path) do |f| %>
- <div class="field>"
-  <%= f.label :emal, 'Correo' %><br />
-  <%= f.text_field :emal %>
- </div>
- <div class="field">
-  <%= f.label :password %><br />
-  <%= f.password_field :password %>
- </div>
- <div class="actions">
-  <%= f.submit "Iniciar sesión" %>
-</div>
+<div class="jumbotron">
+	<h1> Login </h1>
+ <div class="input-group input-group-lg">
+  
+  <%= f.text_field :emal, :placeholder=>"Usuario"%>
+ </div><br>
 
-<%= link_to 'Registrate', :action => 'registro', :controller => "blog" %>
+ <div class="input-group input-group-lg">
+  <%= f.password_field :password, :placeholder=> "Contraseña" %>
+ </div><br>
+ <div class="inicio">
+   <p><input type= "submit" value="Iniciar sesión"></p>
+   <%= link_to 'Registrate', :action => 'registro', :controller => "blog" %>
+ </div>
+
+</div>
 <% end %>

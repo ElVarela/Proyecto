@@ -7,7 +7,30 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<nav class="navbar navbar-default" role="navigation">
+	<div class= 'navbar-inner'>
+		<ul class= "nav navbar-nav navbar-left">
+			<li class="active"><%= link_to 'Inicio', root_path %></li>
+		</ul>
+	</div>
+	<ul class="nav navbar-nav navbar-right">
+		<li><%= link_to 'Nueva Foto', {:action => 'foto_nueva', :controller=>"blog"}, :class => 'btn btn-primary btn-large' %></li>
+		<li><%if !session[:current_user_id] %>
+                 <%= link_to 'login', {:action => 'login', :controller=>"blog"}, :class => 'btn btn-primary btn-large' %>
+             <% end %>
+        </li>
+        <li><% if session[:current_user_id] %>
+            <%= link_to 'logout', {:action => 'logout', :controller=>"blog"}, :class => 'btn btn-primary btn-large' %>
+            <% end %>
+        </li>
+        <li>
+        	<% if session[:current_user_id] %>
+               <% usuario = Usuario.find_by(id: session[:current_user_id]) %>
+               <h4><p class="navbar-text"><font color="white"><%= usuario.nombre %></font></p></h4>
+            <% end %>
+        </li>
+	</ul>
+</nav>
 <%= yield %>
 
 </body>

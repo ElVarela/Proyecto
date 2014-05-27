@@ -62,7 +62,7 @@ Varelauabc::Application.routes.draw do
   get 'blog/logout', to: 'sessions#destroy'
 
 get '/blog/index', to: 'blog#index'
-post '/blog/foto_nueva', to: 'blog#foto_nueva'
+get '/blog/foto_nueva', to: 'blog#foto_nueva'
 post '/blog/guardar_foto', to: 'blog#guardar_foto'
 get '/blog/registro', to: 'blog#registro'
 post '/blog/registrar_usuario', to: 'blog#registrar_usuario'
